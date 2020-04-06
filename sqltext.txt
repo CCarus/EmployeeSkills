@@ -1,0 +1,32 @@
+--create employee table
+
+CREATE TABLE employee (
+employee_id UUID DEFAULT uuid_generate_v4 () PRIMARY KEY,
+first_name VARCHAR NOT NULL,
+last_name VARCHAR NOT NULL,
+company_email VARCHAR NOT NULL,
+birth_date VARCHAR NOT NULL,
+hire_date VARCHAR NOT NULL,
+role VARCHAR NOT NULL,
+
+);
+
+--employee Address
+CREATE TABLE employee_address (
+address_id uuid DEFAULT uuid_generate_v4 () PRIMARY KEY,
+employee_id uuid,
+street VARCHAR NOT NULL,
+city VARCHAR NOT NULL,
+region VARCHAR NOT NULL,
+postal VARCHAR NOT NULL,
+country CHAR (2)
+);
+
+--business_unit
+CREATE TABLE business_unit (
+business_unit_id UUID DEFAULT uuid_generate_v4 () PRIMARY KEY,
+employee_id uuid,
+name VARCHAR NOT NULL,
+description VARCHAR,
+manager_id UUID,
+subordinate_id UUID);
