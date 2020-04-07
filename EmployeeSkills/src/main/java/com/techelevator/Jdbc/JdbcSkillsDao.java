@@ -50,7 +50,7 @@ public class JdbcSkillsDao implements SkillsDao{
 		
 		public void removeSkillFromEmployeeID(UUID employeeID, UUID skillID) {
 			String sqlRemoveSkill = "DELETE skill_id FROM employee_skills WHERE  skill_id=? AND employee_id =?";
-			jdbcTemplate.update(sqlRemoveSkill, employeeID, skillID);
+			jdbcTemplate.update(sqlRemoveSkill, skillID, employeeID);
 		}
 		
 		

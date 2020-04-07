@@ -65,17 +65,17 @@ public class JdbcEmployeeDao implements EmployeeDao {
 	@Override
 	public String deleteEmployee(UUID employeeID) {
 		
-		String sqlDelete = "DELETE FROM employee WHERE employee_id = " + employeeID;
+		String sqlDelete = "DELETE FROM employee WHERE employee_id = ?";
 		jdbcTemplate.update(sqlDelete, employeeID);
 		return "Employee: " + employeeID + " has been removed.";
 	}
 	
 	@Override
-	public void updateEmployee(UUID employeeID, Employee employee) {
+	public void updateEmployee(Employee employee) {
 		String updateEmployeeSql = "UPDATE employee SET first_name = ?, last_name = ?, "
 				+ "company_email = ?, birth_date = ?,hire_date = ?, role =? WHERE employee_id = ?"; 
 		jdbcTemplate.update(updateEmployeeSql, employee.getFirstName(), employee.getLastName(),
-		employee.getCompanyEmail(), employee.getBirthDate(), employee.getHireDate(), employee.getRole(), employeeID);
+		employee.getCompanyEmail(), employee.getBirthDate(), employee.getHireDate(), employee.getRole(), employee.getEmployeeID());
 	}
 	
 

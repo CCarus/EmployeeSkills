@@ -1,0 +1,73 @@
+<template>
+
+<div id='main'>
+   Employee Selected. <br>
+
+    Employee First Name: {{employee.firstName}} <br>
+    Employee Last Name: {{employee.lastName}}<br>
+
+ Employee First Name: <input type='text' v-model='employee.firstName'/> <br>
+ Employee Last Name:<input type='text' v-model='employee.lastName'/> <br>
+ Email: <input type='text' v-model='employee.companyEmail'/> <br>
+ Birth Date: <input type='text' v-model='employee.birthDate'/> <br>
+ Hire Date:<input type='text' v-model='employee.hireDate'/> <br>
+ Role: <select id='employee-role' v-model='employee.role'>
+        <option value='Technical Consultant' selected>Technical Consultant</option>    
+          <option value='Project Manager'>Project Manager</option>
+                <option value='Director'>Director</option>   
+                <option value='Chief '>Chief </option>    
+    </select> <br><br>
+
+
+    <button id='update-btn' v-on:click='updateEmployee'>Update Data?</button>
+    </div>
+
+</template>
+
+
+<script>
+export default {
+    data() {
+        return {
+            employee : {}
+        }
+    },
+    methods: 
+    {
+        getEmployee(employeeID) {
+
+            fetch(`http://localhost:8080/EmployeeSkills/api/employees/${employeeID}`)
+            .then (
+                (response) => {return response.json();}
+            )
+            .then ( 
+                (employeeData) => {this.employee = employeeData;}
+            )
+            .catch(
+                (err) => {console.error(err + ' No employee found'); }
+            )
+        },
+
+        updateEmployee(employeeID) {
+             fetch(`http://localhost:8080/EmployeeSkills/api/employees/${employeeID}`,
+                {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(this.employee)
+            })
+            .then(
+                () => {window.alert('Employee information updated');}
+            )
+            .catch(
+                (err) => {console.error(err + ' problem editing doggo!'); }
+            )
+        }
+
+    },
+    created() {
+        this.getEmployee(this.$route.params.employeeID);
+    },
+}
+</script>
