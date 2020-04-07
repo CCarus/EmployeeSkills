@@ -3,8 +3,8 @@
 <div id='main'>
    Employee Selected. <br>
 
-    Employee First Name: {{employee.firstName}} <br>
-    Employee Last Name: {{employee.lastName}}<br>
+    {{employee.firstName}} <br>
+    {{employee.lastName}}<br>
 
  Employee First Name: <input type='text' v-model='employee.firstName'/> <br>
  Employee Last Name:<input type='text' v-model='employee.lastName'/> <br>
