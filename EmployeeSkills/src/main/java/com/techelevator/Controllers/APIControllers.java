@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.Dao.EmployeeDao;
-import com.techelevator.Dao.EmployeeSkillsDao;
+import com.techelevator.Dao.SkillsDao;
 import com.techelevator.Model.Employee;
 import com.techelevator.Model.Skills;
 
@@ -26,8 +26,10 @@ public class APIControllers {
 
 	@Autowired
 	private EmployeeDao employeeDAO;
+	
 	@Autowired
-	private EmployeeSkillsDao employeeSkillsDAO;
+	private SkillsDao skillsDao;
+	
 
 	@RequestMapping("/employees")
 	public List<Employee> displayAllEmployees() {
@@ -41,27 +43,27 @@ public class APIControllers {
 
 	}
 	
-	@GetMapping("/employees/{employeeId}")
+	@GetMapping("/employees/{employeeID}")
 	public Employee displayEmployeeById(@PathVariable UUID employeeID) {
 		Employee employee = employeeDAO.getEmployeeById(employeeID);
 		return employee;
 	}
 
 	
-	@PutMapping("/employees/{employeeId}")
+	@PutMapping("/employees/{employeeID}")
 	public void updateEmployeeById(UUID employeeID, Employee employee) {
 	employeeDAO.updateEmployee(employeeID, employee);
 	}
 	
 	
-	@DeleteMapping("/employees/{employeeId}")
+	@DeleteMapping("/employees/{employeeID}")
 	public void deleteEmployeeById(UUID employeeID) {
 		employeeDAO.deleteEmployee(employeeID);
 	}
 
 @GetMapping("/employees​/{employeeID}​/skills​/{skillID}")
 public List<Skills> returnEmployeeyBySkillID(@PathVariable UUID employeeID) {
-List<Skills> employeeSkills = employeeSkillsDAO.getAllSkillsByEmployeeID(employeeID);
+List<Skills> employeeSkills = skillsDao.getAllSkillsByEmployeeID(employeeID);
 	
 	return employeeSkills;
 }

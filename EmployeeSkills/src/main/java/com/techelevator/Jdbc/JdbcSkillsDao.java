@@ -11,17 +11,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import com.techelevator.Dao.EmployeeSkillsDao;
-import com.techelevator.Model.EmployeeSkills;
+import com.techelevator.Dao.SkillsDao;
+import com.techelevator.Model.Employee;
+
 import com.techelevator.Model.Skills;
 
 @Component
-public class JdbcEmployeeSkillsDao implements EmployeeSkillsDao{
+public class JdbcSkillsDao implements SkillsDao{
 
 	private final JdbcTemplate jdbcTemplate;
 	
 	 @Autowired
-	    public JdbcEmployeeSkillsDao(DataSource dataSource) {
+	    public JdbcSkillsDao(DataSource dataSource) {
 	        this.jdbcTemplate = new JdbcTemplate(dataSource);
 	    }
 		@Override
@@ -41,10 +42,10 @@ public class JdbcEmployeeSkillsDao implements EmployeeSkillsDao{
 			}
 		
 		@Override
-		public void createNewEmployeeSkills(EmployeeSkills employeeSkills) {
+		public void createNewEmployeeSkills(Skills Skills, Employee employee) {
 			String sql = "INSERT INTO employee_skills (skill_id, employee_id) VALUES ("
 					+ "?, ?)";
-			jdbcTemplate.update(sql, employeeSkills.getSkillID(), employeeSkills.getEmployeeID());
+			jdbcTemplate.update(sql, Skills.getSkillID(), employee.getEmployeeID());
 		}
 		
 		public void removeSkillFromEmployeeID(UUID employeeID, UUID skillID) {

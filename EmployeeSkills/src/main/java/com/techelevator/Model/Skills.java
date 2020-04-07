@@ -38,6 +38,8 @@ public class Skills{
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
+
+
 	
 	
 }

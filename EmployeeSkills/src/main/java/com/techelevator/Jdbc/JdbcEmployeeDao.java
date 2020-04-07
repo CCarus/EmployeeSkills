@@ -72,8 +72,8 @@ public class JdbcEmployeeDao implements EmployeeDao {
 	
 	@Override
 	public void updateEmployee(UUID employeeID, Employee employee) {
-		String updateEmployeeSql = "UPDATE employee SET first_name = ?, last_name = ?,"
-			+ "company_email = ?, birth_date = ?,hire_date = ?, role =? WHERE employee_id = ?"; 
+		String updateEmployeeSql = "UPDATE employee SET first_name = ?, last_name = ?, "
+				+ "company_email = ?, birth_date = ?,hire_date = ?, role =? WHERE employee_id = ?"; 
 		jdbcTemplate.update(updateEmployeeSql, employee.getFirstName(), employee.getLastName(),
 		employee.getCompanyEmail(), employee.getBirthDate(), employee.getHireDate(), employee.getRole(), employeeID);
 	}
