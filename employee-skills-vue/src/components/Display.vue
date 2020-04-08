@@ -12,7 +12,7 @@
 
       
     <router-link :to="{name: 'display-detail', params: {employeeID: employee.employeeID}}"> Edit Employee Data </router-link><br>
-     <router-link :to="{name: 'display-detail', params: {employeeID: employee.employeeID}}"> Delete Employee </router-link><br><br>
+     <!-- <router-link :to="{name: 'display-detail', params: {employeeID: employee.employeeID}}"> Delete Employee </router-link><br><br> -->
     </div>
 
 </div>

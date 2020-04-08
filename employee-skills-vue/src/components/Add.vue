@@ -8,11 +8,11 @@
             Company Email: <input id='employee-company-email' v-model='employee.companyEmail' /> <br><br>
             Date of Birth: <input id='employee-birthDate' v-model='employee.birthDate' /> <br><br>
             Hire Date: <input id='employee-hireDate' v-model='employee.hireDate' /> <br><br>
-            Role:  <select id='employee-role' v-model='employee.gender'>   
-                <option value='Technical Consultant' >Technical Consultant</option>    
-                <option value='Project Manager'>Project Manager</option>
-                <option value='Director'>Director</option>   
-                <option value='Chief '>Chief </option>                
+            Role:  <select id='employee-role' v-model='employee.role'>   
+                <option value='Technical Consultant' v-bind='employee.role'>Technical Consultant</option>    
+                <option value='Project Manager' v-bind='employee.role'>Project Manager</option>
+                <option value='Director' v-bind='employee.role'>Director</option>   
+                <option value='Chief ' v-bind='employee.role'>Chief </option>                
             </select> <br> <br>  
             <button id='emp-add-btn' v-on:click='saveEmployee'>Add Employee</button>
         </form>
