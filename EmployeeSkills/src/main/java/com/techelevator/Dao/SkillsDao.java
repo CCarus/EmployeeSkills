@@ -14,6 +14,8 @@ public interface SkillsDao {
 
 	void createNewEmployeeSkills(Skills Skills, Employee employee);
 
+	public void createNewSkill(Skills skill);
+
 
 	
 }

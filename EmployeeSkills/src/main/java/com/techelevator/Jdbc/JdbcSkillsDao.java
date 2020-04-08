@@ -42,6 +42,14 @@ public class JdbcSkillsDao implements SkillsDao{
 			}
 		
 		@Override
+		public void createNewSkill(Skills skill) {
+			String sql = "INSERT INTO skills (field_id, experience, summary) VALUES"
+					+ "(,?,?,?) ";
+			jdbcTemplate.update(sql, skill.getFieldID(), skill.getExperience(), skill.getSummary());
+		}
+		
+		
+		@Override
 		public void createNewEmployeeSkills(Skills Skills, Employee employee) {
 			String sql = "INSERT INTO employee_skills (skill_id, employee_id) VALUES ("
 					+ "?, ?)";

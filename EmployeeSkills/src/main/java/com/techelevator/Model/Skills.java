@@ -18,7 +18,7 @@ public class Skills{
 		return skillID;
 	}
 	public void setSkillID(UUID skillID) {
-		this.skillID = UUID.randomUUID();
+		this.skillID = skillID;
 	}
 	public UUID getFieldID() {
 		return fieldID;
