@@ -1,10 +1,8 @@
 <template>
 
 <div id='main'>
-   Employee Selected. <br>
-
-    {{employee.firstName}} <br>
-    {{employee.lastName}}<br>
+  Selected Employee:
+ {{employee.firstName + ""}} {{employee.lastName}}<br>
 
  Employee First Name: <input type='text' v-model='employee.firstName'/> <br>
  Employee Last Name:<input type='text' v-model='employee.lastName'/> <br>
@@ -19,7 +17,8 @@
     </select> <br><br>
 
 
-    <button id='update-btn' v-on:click='updateEmployee'>Update Data?</button>
+    <button id='update-btn' v-on:click='updateEmployee (employee.employeeID)'>Update Employee?</button>
+
     </div>
 
 </template>
@@ -28,6 +27,7 @@
 <script>
 export default {
     data() {
+        
         return {
             employee : {}
         }
@@ -66,7 +66,9 @@ export default {
         }
 
     },
+
     created() {
+        console.log(this.$route.params.employeeID);
         this.getEmployee(this.$route.params.employeeID);
     },
 }

@@ -9,6 +9,7 @@
         Employee Hire Date: {{employee.hireDate}} <br>
         Role:  {{employee.role}} <br>
         
+
         <router-link :to="{name: 'display-detail', params: {id: employee.id}}"> update Employee </router-link><br><br>
     
     </div>
@@ -18,6 +19,7 @@
 <script>
 export default {
   name: 'Home',
-
+ 
+ 
 }
 </script>

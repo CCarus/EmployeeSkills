@@ -2,7 +2,7 @@
 <div id='main'>
 
     <div class='employee-info' v-for='employee in allEmployees' :key='employee.employeeID'>
-
+     
         Employee First Name: {{employee.firstName}} <br>
         Employee Last Name: {{employee.lastName}} <br>
         Employee Email: {{employee.companyEmail}} <br>
@@ -10,9 +10,8 @@
         Employee Hire Date: {{employee.hireDate}} <br>
         Role:  {{employee.role}} <br>
 
-        <!--Remember that dynamic route we defined? It's being called here: -->
-        <router-link :to="{name: 'display-detail', params: {employeeID: employee.employeeID}}"> Edit Employee Data </router-link><br><br>
-    
+      
+    <router-link :to="{name: 'display-detail', params: {employeeID: employee.employeeID}}"> Edit Employee Data </router-link><br><br>
     </div>
 
 </div>
@@ -43,11 +42,10 @@ export default {
 </script>
 <style>
 
-  .employee-info {
-    
+  #employee-info {
     margin: 20px;
     width: 50%;
     background-color: white;
   }
 
-</style>`
+</style>

@@ -71,11 +71,12 @@ public class JdbcEmployeeDao implements EmployeeDao {
 	}
 	
 	@Override
-	public void updateEmployee(Employee employee) {
+	public void updateEmployee(Employee employee, UUID employeeId) {
+		System.out.println("employee id is " + employee.getEmployeeID());
 		String updateEmployeeSql = "UPDATE employee SET first_name = ?, last_name = ?, "
 				+ "company_email = ?, birth_date = ?,hire_date = ?, role =? WHERE employee_id = ?"; 
 		jdbcTemplate.update(updateEmployeeSql, employee.getFirstName(), employee.getLastName(),
-		employee.getCompanyEmail(), employee.getBirthDate(), employee.getHireDate(), employee.getRole(), employee.getEmployeeID());
+		employee.getCompanyEmail(), employee.getBirthDate(), employee.getHireDate(), employee.getRole(), employeeId);
 	}
 	
 
@@ -88,7 +89,7 @@ public class JdbcEmployeeDao implements EmployeeDao {
 		employee.setBirthDate(result.getString("birth_date"));
 		employee.setHireDate(result.getString("hire_date"));
 		employee.setRole(result.getString("role"));
-		
+				
 	return employee;
 }
 

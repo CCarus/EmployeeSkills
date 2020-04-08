@@ -39,7 +39,7 @@ public class Employee {
 		return employeeID;
 	}
 	public void setEmployeeID(UUID employeeID) {
-		this.employeeID = UUID.randomUUID();
+		this.employeeID = employeeID;
 	}
 	public String getFirstName() {
 		return firstName;

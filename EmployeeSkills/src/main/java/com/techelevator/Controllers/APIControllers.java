@@ -21,6 +21,8 @@ import com.techelevator.Dao.SkillsDao;
 import com.techelevator.Model.Employee;
 import com.techelevator.Model.Skills;
 
+import java.util.UUID;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
@@ -35,12 +37,15 @@ public class APIControllers {
 	@RequestMapping("/employees")
 	public List<Employee> displayAllEmployees() {
 		List<Employee> allEmployees = employeeDAO.getAllEmployees();
+		System.out.println(allEmployees);
 		return allEmployees;
 	}
 
 	@PostMapping("/employees")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void addNewEmployee(@RequestBody Employee employee) {
+		
+		employee.setEmployeeID(UUID.randomUUID());
 		employeeDAO.createNewEmployee(employee);
 
 	}
@@ -52,14 +57,15 @@ public class APIControllers {
 	}
 
 	@PutMapping("/employees/{employeeID}")
-	public void updateEmployeeById(Employee employee) {
-		employeeDAO.updateEmployee(employee);
+	public void updateEmployeeById(@RequestBody Employee employee, @PathVariable UUID employeeID ) {
+		
+		employeeDAO.updateEmployee(employee, employeeID);
 	
 	}
 
 	@DeleteMapping("/employees/{employeeID}")
 	@ResponseStatus(HttpStatus.OK)
-	public void deleteEmployeeById(UUID employeeID) {
+	public void deleteEmployeeById(@PathVariable UUID employeeID) {
 		employeeDAO.deleteEmployee(employeeID);
 	}
 

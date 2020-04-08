@@ -3,7 +3,7 @@
       
      <div id='input-section'> 
         <form>
-            First Name: <input id='employee-firstname' v-model='employee.firstName' /> <br><br>
+            First Name:<input id='employee-firstname' v-model='employee.firstName' /> <br><br>
             Last Name:  <input id='employee-lastname' v-model='employee.lastName' /> <br><br>
             Company Email: <input id='employee-company-email' v-model='employee.companyEmail' /> <br><br>
             Date of Birth: <input id='employee-birthDate' v-model='employee.birthDate' /> <br><br>
@@ -14,7 +14,7 @@
                 <option value='Director'>Director</option>   
                 <option value='Chief '>Chief </option>                
             </select> <br> <br>  
-            <button id='emp-add-btn' v-on:click='saveReview'>Add Employee</button>
+            <button id='emp-add-btn' v-on:click='saveEmployee'>Add Employee</button>
         </form>
       </div>
   </div>
@@ -60,7 +60,7 @@ export default {
 
 <style>
     #input-section {
-        background-color: rosybrown;
+        background-color: rgba(204, 47, 47, 0.616);
         margin: 20px;
         padding: 20px;
         width: 20%;

@@ -15,7 +15,7 @@ public interface EmployeeDao {
 
 	Employee getEmployeeById(UUID employeeID);
 
-	void updateEmployee(Employee employee);
+	void updateEmployee(Employee employee, UUID idToUpdate);
 
 	
 	
