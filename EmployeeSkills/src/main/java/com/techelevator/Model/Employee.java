@@ -33,6 +33,16 @@ public class Employee {
 		this.role = role;
 	
 	}
+	public Employee(String firstName, String lastName,
+	String companyEmail, String birthDate, String hireDate, String role) {
+		
+		this.firstName= firstName;
+		this.lastName= lastName;
+		this.companyEmail = companyEmail;
+		this.birthDate = birthDate;
+		this.hireDate = hireDate;
+		this.role = role;
+	}
 	
 	
 	public UUID getEmployeeID() {

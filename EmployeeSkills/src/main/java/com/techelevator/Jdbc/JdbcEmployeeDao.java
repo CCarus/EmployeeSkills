@@ -79,7 +79,7 @@ public class JdbcEmployeeDao implements EmployeeDao {
 		employee.getCompanyEmail(), employee.getBirthDate(), employee.getHireDate(), employee.getRole(), employeeId);
 	}
 	
-
+//how to set all the attributes of the employee from JDBC results
 	private Employee mapRowToEmployee(SqlRowSet result) {
 		Employee employee = new Employee();
 		employee.setEmployeeID((UUID) result.getObject("employee_id"));

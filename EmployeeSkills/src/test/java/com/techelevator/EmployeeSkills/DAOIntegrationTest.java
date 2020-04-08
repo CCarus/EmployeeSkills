@@ -15,11 +15,11 @@ public abstract class DAOIntegrationTest {
 	
 	private static SingleConnectionDataSource dataSource;
 
-	
+	//CRUD
 	@BeforeClass
 	public static void setupDataSource() {
 		dataSource = new SingleConnectionDataSource();
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/historygeek");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/EmployeeSKills");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres1");
 	

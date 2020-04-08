@@ -65,15 +65,21 @@ private static SingleConnectionDataSource dataSource;
 
 @Test
 public void test_return_all_employees() {
+
 	List <Employee> allEmployees = employeeDao.getAllEmployees();
-	String sql = "SELECT * FROM employee";
-	SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-	int countEmployees = 0;
-	while (results.next()) {
-		countEmployees += 1;
+	int countEmployees = allEmployees.size();
+
+	Employee employee = new Employee("Michelin", "Man", "michelin.man@gmail.com", "1970-01-01", "1995-01-01", "Director");
+	employeeDao.createNewEmployee(employee);
+
+
+	String sqlCount = "SELECT * FROM employee";
+	List <Employee> allEmployeesUpdated = employeeDao.getAllEmployees();
+	int countAfterAdded = allEmployeesUpdated.size();
+
+	assertEquals(countEmployees + 1 , countAfterAdded);
 	}
-	assertEquals(countEmployees, allEmployees.size());
-}
+
 
 //	@Test
 	//public void test_get_employee_by_id() {
