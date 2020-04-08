@@ -11,7 +11,8 @@
         Role:  {{employee.role}} <br>
 
       
-    <router-link :to="{name: 'display-detail', params: {employeeID: employee.employeeID}}"> Edit Employee Data </router-link><br><br>
+    <router-link :to="{name: 'display-detail', params: {employeeID: employee.employeeID}}"> Edit Employee Data </router-link><br>
+     <router-link :to="{name: 'display-detail', params: {employeeID: employee.employeeID}}"> Delete Employee </router-link><br><br>
     </div>
 
 </div>
@@ -42,8 +43,11 @@ export default {
 </script>
 <style>
 
-  #employee-info {
+  .employee-info {
+    padding-top:20px;
     margin: 20px;
+     margin-left: auto;
+  margin-right: auto;
     width: 50%;
     background-color: white;
   }

@@ -2,7 +2,7 @@
 
 <div id='main'>
   Selected Employee:
- {{employee.firstName + ""}} {{employee.lastName}}<br>
+ {{employee.firstName + ""}}{{employee.lastName}}<br>
 
  Employee First Name: <input type='text' v-model='employee.firstName'/> <br>
  Employee Last Name:<input type='text' v-model='employee.lastName'/> <br>
@@ -17,8 +17,8 @@
     </select> <br><br>
 
 
-    <button id='update-btn' v-on:click='updateEmployee (employee.employeeID)'>Update Employee?</button>
-
+    <button id='update-btn' v-on:click='updateEmployee (employee.employeeID)'>Update Employee</button>
+  <button id='delete-btn' v-on:click='deleteEmployee (employee.employeeID)'>Delete Employee</button>
     </div>
 
 </template>
@@ -61,15 +61,33 @@ export default {
                 () => {window.alert('Employee information updated');}
             )
             .catch(
-                (err) => {console.error(err + ' problem editing doggo!'); }
+                (err) => {console.error(err + 'Cannot update Emloyee'); }
             )
-        }
+        },
+        
 
     },
+    deleteEmployee(employeeID) {
+             fetch(`http://localhost:8080/EmployeeSkills/api/employees/${employeeID}`,
+                {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(this.employee)
+            })
+            .then(
+                () => {window.alert('Employee has been deleted');}
+            )
+            .catch(
+                (err) => {console.error(err + ' problem editing doggo!'); }
+            )
+        },
 
+    
     created() {
         console.log(this.$route.params.employeeID);
         this.getEmployee(this.$route.params.employeeID);
-    },
+    }
 }
 </script>

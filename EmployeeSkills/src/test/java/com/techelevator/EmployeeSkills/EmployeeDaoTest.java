@@ -75,10 +75,10 @@ public void test_return_all_employees() {
 	assertEquals(countEmployees, allEmployees.size());
 }
 
-	@Test
-	public void test_get_employee_by_id() {
-		Employee employee = employeeDao.getEmployeeById(id);
-	}
+//	@Test
+	//public void test_get_employee_by_id() {
+		//Employee employee = employeeDao.getEmployeeById();
+	//}
 	
 }
 

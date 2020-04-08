@@ -60,9 +60,12 @@ export default {
 
 <style>
     #input-section {
-        background-color: rgba(204, 47, 47, 0.616);
+        display: inline-block;
+        background-color: rgba(189, 0, 0, 0.952);
+        text-align:center;
+        color: white;
         margin: 20px;
         padding: 20px;
-        width: 20%;
+        width: 30%;
     }
 </style>
